@@ -2,23 +2,24 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { FIREBASE_VARIABLES } from "./constants";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBl8CGSDH4G5IIQunmwWuf2yvveE8jlvog",
-  authDomain: "netflix-clone-a4df6.firebaseapp.com",
-  projectId: "netflix-clone-a4df6",
-  storageBucket: "netflix-clone-a4df6.appspot.com",
-  messagingSenderId: "503985726948",
-  appId: "1:503985726948:web:79443632064870c11453f1",
-  measurementId: "G-XGE6P8YF85"
+  apiKey: FIREBASE_VARIABLES.FIREBASE_API_KEY,
+  authDomain: FIREBASE_VARIABLES.FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_VARIABLES.FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_VARIABLES.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_VARIABLES.FIREBASE_MESSAGING_SENDER_ID,
+  appId: FIREBASE_VARIABLES.FIREBASE_APP_ID,
+  measurementId: FIREBASE_VARIABLES.FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-export const auth = getAuth();
+export const auth = getAuth(app);

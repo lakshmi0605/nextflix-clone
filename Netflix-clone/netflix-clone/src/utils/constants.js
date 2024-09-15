@@ -1,3 +1,5 @@
+import {cleanENV} from "./cleanStrings";
+
 export const LOGO =
   "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png";
 
@@ -9,7 +11,7 @@ export const API_OPTIONS = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY ,
+      Authorization: "Bearer " + cleanENV(process.env.REACT_APP_TMDB_KEY),
     }
   };
 
@@ -26,4 +28,15 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+export const OPENAI_KEY = cleanENV(process.env.REACT_APP_OPENAI_KEY);
+
+
+export const FIREBASE_VARIABLES = {
+  FIREBASE_API_KEY : cleanENV(process.env.REACT_APP_FIREBASE_API_KEY),
+  FIREBASE_AUTH_DOMAIN : cleanENV(process.env.REACT_APP_FIREBASE_AUTH_DOMAIN),
+  FIREBASE_PROJECT_ID : cleanENV(process.env.REACT_APP_FIREBASE_PROJECT_ID),
+  FIREBASE_STORAGE_BUCKET : cleanENV(process.env.REACT_APP_FIREBASE_STORAGE_BUCKET),
+  FIREBASE_MESSAGING_SENDER_ID : cleanENV(process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID),
+  FIREBASE_APP_ID : cleanENV(process.env.REACT_APP_FIREBASE_APP_ID),
+  FIREBASE_MEASUREMENT_ID : cleanENV(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID),
+}
